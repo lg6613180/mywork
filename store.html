@@ -4,14 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>store</title>
-</head>
-
-<body>
-    <a id="p1"></a>   
-    <a id="p2"></a>
-
-
-    <script type="text/javascript" src="http://hq.sinajs.cn/list=sz399006" charset="gb2312"></script>
+   <script type="text/javascript" src="http://hq.sinajs.cn/list=sz399006" charset="gb2312"></script>
     <script type="text/javascript" src="http://hq.sinajs.cn/list=sz399317" charset="gb2312"></script>
     <script type="text/javascript">
     //循环执行，每隔3秒钟执行一次showalert（） 
@@ -25,7 +18,11 @@
       document.getElementById("p1").innerHTML = (cyb[0]+': ' + ((cyb[3]-cyb[2])/cyb[2]*100).toFixed(2)+'%');
       document.getElementById("p2").innerHTML = (gza[0]+': ' + ((gza[3]-gza[2])/gza[2]*100).toFixed(2)+'%');
     } 
-</script>
+  </script>
+</head>
 
+<body>
+    <a id="p1"></a>   
+    <a id="p2"></a>
 </body>
 </html>
