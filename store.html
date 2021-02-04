@@ -4,25 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>store</title>
-   <script type="text/javascript" src="https://hq.sinajs.cn/list=sz399006" charset="gb2312"></script>
-    <script type="text/javascript" src="https://hq.sinajs.cn/list=sz399317" charset="gb2312"></script>
-    <script type="text/javascript">
-    //循环执行，每隔1秒钟执行一次showalert（） 
-    window.setInterval(showalert, 1000); 
-    function showalert() 
-    { 
-      var hq_str=eval("hq_str_sz399006");
-      var hq_str2=eval("hq_str_sz399317");
-      var cyb=hq_str.split(",");
-      var gza=hq_str2.split(",");
-      document.getElementById("p1").innerHTML = (cyb[0]+': ' + ((cyb[3]-cyb[2])/cyb[2]*100).toFixed(2)+'%');
-      document.getElementById("p2").innerHTML = (gza[0]+': ' + ((gza[3]-gza[2])/gza[2]*100).toFixed(2)+'%');
-    } 
-  </script>
 </head>
 
 <body>
     <a style="color:#333333;padding: 8px;" id="p1"></a>   
     <a style="color:#333333;padding: 8px;" id="p2"></a>
+
+
+    <script type="text/javascript" src="https://hq.sinajs.cn/list=sz399006,sz399317" charset="gb2312"></script>
+    
+
+    <script type="text/javascript">
+    //循环执行，每隔3秒钟执行一次showalert（） 
+    var hq_str=eval("hq_str_sz399006");
+      var hq_str2=eval("hq_str_sz399317");
+      var cyb=hq_str.split(",");
+      var gza=hq_str2.split(",");
+      document.getElementById("p1").innerHTML = (cyb[0]+': ' + ((cyb[3]-cyb[2])/cyb[2]*100).toFixed(2)+'%');
+      document.getElementById("p2").innerHTML = (gza[0]+': ' + ((gza[3]-gza[2])/gza[2]*100).toFixed(2)+'%');
+    window.setInterval(showalert, 2000); 
+    function showalert() 
+    { 
+      
+      location.reload()
+    } 
+    </script>
 </body>
 </html>
