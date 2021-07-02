@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+    <script src="GLTFLoader.js"></script>
+		<script>
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      document.body.appendChild( renderer.domElement );
+
+      var loader = new THREE.GLTFLoader();
+   loader.load( "Horse.glb", function ( collada ) {
+      //找到模型中需要的对象。将相机看向这个对象是为了让这个对象显示在屏幕中心
+      collada.scene.traverse( function ( child ) {
+         if ( child instanceof THREE.SkinnedMesh ) {
+            modelObj = child;
+            camera.lookAt( child.position );
+         }
+      } );
+      //将模型的场景加入到整体的场景
+       modelObj.material.opacity = 0.8;
+      scene.add( collada.scene );
+
+      //显示出模型的骨骼的代码,不需要可删去
+      var helper = new THREE.SkeletonHelper( modelObj );
+      helper.material.linewidth = 3;
+      scene.add( helper );
+   } );
+		</script>
+	</body>
+</html>
