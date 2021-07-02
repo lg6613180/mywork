@@ -17,23 +17,16 @@
       document.body.appendChild( renderer.domElement );
 
       var loader = new THREE.GLTFLoader();
-   loader.load( "Horse.glb", function ( collada ) {
-      //找到模型中需要的对象。将相机看向这个对象是为了让这个对象显示在屏幕中心
-      collada.scene.traverse( function ( child ) {
-         if ( child instanceof THREE.SkinnedMesh ) {
-            modelObj = child;
-            camera.lookAt( child.position );
-         }
-      } );
-      //将模型的场景加入到整体的场景
-       //modelObj.material.opacity = 0.8;
-      scene.add( collada.scene );
 
-      //显示出模型的骨骼的代码,不需要可删去
-      var helper = new THREE.SkeletonHelper( modelObj );
-      helper.material.linewidth = 3;
-      scene.add( helper );
-   } );
+loader.load( 'Horse.glb', function ( gltf ) {
+
+	scene.add( gltf.scene );
+
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
 		</script>
 	</body>
 </html>
